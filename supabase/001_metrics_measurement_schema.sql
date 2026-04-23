@@ -155,32 +155,77 @@ alter table public.scoring_rules enable row level security;
 alter table public.threshold_rules enable row level security;
 alter table public.movement_rules enable row level security;
 
-do $$
-declare
-  table_name text;
-begin
-  foreach table_name in array array[
-    'hub_pages',
-    'lead_source_categories',
-    'lead_sources',
-    'lifecycle_stages',
-    'scoring_rule_groups',
-    'scoring_rules',
-    'threshold_rules',
-    'movement_rules'
-  ]
-  loop
-    execute format('drop policy if exists "Public read %1$s" on public.%1$I', table_name);
-    execute format('drop policy if exists "Public insert %1$s" on public.%1$I', table_name);
-    execute format('drop policy if exists "Public update %1$s" on public.%1$I', table_name);
-    execute format('drop policy if exists "Public delete %1$s" on public.%1$I', table_name);
-    execute format('create policy "Public read %1$s" on public.%1$I for select using (true)', table_name);
-    execute format('create policy "Public insert %1$s" on public.%1$I for insert with check (true)', table_name);
-    execute format('create policy "Public update %1$s" on public.%1$I for update using (true) with check (true)', table_name);
-    execute format('create policy "Public delete %1$s" on public.%1$I for delete using (true)', table_name);
-  end loop;
-end;
-$$;
+drop policy if exists "Public read hub_pages" on public.hub_pages;
+drop policy if exists "Public insert hub_pages" on public.hub_pages;
+drop policy if exists "Public update hub_pages" on public.hub_pages;
+drop policy if exists "Public delete hub_pages" on public.hub_pages;
+create policy "Public read hub_pages" on public.hub_pages for select using (true);
+create policy "Public insert hub_pages" on public.hub_pages for insert with check (true);
+create policy "Public update hub_pages" on public.hub_pages for update using (true) with check (true);
+create policy "Public delete hub_pages" on public.hub_pages for delete using (true);
+
+drop policy if exists "Public read lead_source_categories" on public.lead_source_categories;
+drop policy if exists "Public insert lead_source_categories" on public.lead_source_categories;
+drop policy if exists "Public update lead_source_categories" on public.lead_source_categories;
+drop policy if exists "Public delete lead_source_categories" on public.lead_source_categories;
+create policy "Public read lead_source_categories" on public.lead_source_categories for select using (true);
+create policy "Public insert lead_source_categories" on public.lead_source_categories for insert with check (true);
+create policy "Public update lead_source_categories" on public.lead_source_categories for update using (true) with check (true);
+create policy "Public delete lead_source_categories" on public.lead_source_categories for delete using (true);
+
+drop policy if exists "Public read lead_sources" on public.lead_sources;
+drop policy if exists "Public insert lead_sources" on public.lead_sources;
+drop policy if exists "Public update lead_sources" on public.lead_sources;
+drop policy if exists "Public delete lead_sources" on public.lead_sources;
+create policy "Public read lead_sources" on public.lead_sources for select using (true);
+create policy "Public insert lead_sources" on public.lead_sources for insert with check (true);
+create policy "Public update lead_sources" on public.lead_sources for update using (true) with check (true);
+create policy "Public delete lead_sources" on public.lead_sources for delete using (true);
+
+drop policy if exists "Public read lifecycle_stages" on public.lifecycle_stages;
+drop policy if exists "Public insert lifecycle_stages" on public.lifecycle_stages;
+drop policy if exists "Public update lifecycle_stages" on public.lifecycle_stages;
+drop policy if exists "Public delete lifecycle_stages" on public.lifecycle_stages;
+create policy "Public read lifecycle_stages" on public.lifecycle_stages for select using (true);
+create policy "Public insert lifecycle_stages" on public.lifecycle_stages for insert with check (true);
+create policy "Public update lifecycle_stages" on public.lifecycle_stages for update using (true) with check (true);
+create policy "Public delete lifecycle_stages" on public.lifecycle_stages for delete using (true);
+
+drop policy if exists "Public read scoring_rule_groups" on public.scoring_rule_groups;
+drop policy if exists "Public insert scoring_rule_groups" on public.scoring_rule_groups;
+drop policy if exists "Public update scoring_rule_groups" on public.scoring_rule_groups;
+drop policy if exists "Public delete scoring_rule_groups" on public.scoring_rule_groups;
+create policy "Public read scoring_rule_groups" on public.scoring_rule_groups for select using (true);
+create policy "Public insert scoring_rule_groups" on public.scoring_rule_groups for insert with check (true);
+create policy "Public update scoring_rule_groups" on public.scoring_rule_groups for update using (true) with check (true);
+create policy "Public delete scoring_rule_groups" on public.scoring_rule_groups for delete using (true);
+
+drop policy if exists "Public read scoring_rules" on public.scoring_rules;
+drop policy if exists "Public insert scoring_rules" on public.scoring_rules;
+drop policy if exists "Public update scoring_rules" on public.scoring_rules;
+drop policy if exists "Public delete scoring_rules" on public.scoring_rules;
+create policy "Public read scoring_rules" on public.scoring_rules for select using (true);
+create policy "Public insert scoring_rules" on public.scoring_rules for insert with check (true);
+create policy "Public update scoring_rules" on public.scoring_rules for update using (true) with check (true);
+create policy "Public delete scoring_rules" on public.scoring_rules for delete using (true);
+
+drop policy if exists "Public read threshold_rules" on public.threshold_rules;
+drop policy if exists "Public insert threshold_rules" on public.threshold_rules;
+drop policy if exists "Public update threshold_rules" on public.threshold_rules;
+drop policy if exists "Public delete threshold_rules" on public.threshold_rules;
+create policy "Public read threshold_rules" on public.threshold_rules for select using (true);
+create policy "Public insert threshold_rules" on public.threshold_rules for insert with check (true);
+create policy "Public update threshold_rules" on public.threshold_rules for update using (true) with check (true);
+create policy "Public delete threshold_rules" on public.threshold_rules for delete using (true);
+
+drop policy if exists "Public read movement_rules" on public.movement_rules;
+drop policy if exists "Public insert movement_rules" on public.movement_rules;
+drop policy if exists "Public update movement_rules" on public.movement_rules;
+drop policy if exists "Public delete movement_rules" on public.movement_rules;
+create policy "Public read movement_rules" on public.movement_rules for select using (true);
+create policy "Public insert movement_rules" on public.movement_rules for insert with check (true);
+create policy "Public update movement_rules" on public.movement_rules for update using (true) with check (true);
+create policy "Public delete movement_rules" on public.movement_rules for delete using (true);
 
 insert into public.hub_pages (slug, title, intro, body, status) values
   ('overview', 'Metrics & Measurement hub', 'A central source of truth for how Jungle leads enter, qualify, move, stall, recycle, and become opportunities.', '{"governs":["lead sources","lifecycle stages","lead scoring","thresholds","movement rules"]}', 'active'),
