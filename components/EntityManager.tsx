@@ -301,14 +301,11 @@ export function EntityManager({
                       ))}
                       <td>
                         <div className="rowActions">
-                          <button className="button buttonGhost" onClick={() => startEdit(record)}>
-                            Edit
+                          <button className="actionIconBtn" onClick={() => startEdit(record)} title="Edit" aria-label={`Edit ${asText(record.name, "record")}`}>
+                            ✏️
                           </button>
-                          <button className="button buttonGhost" onClick={() => archiveRecord(record)} disabled={saving}>
-                            Archive
-                          </button>
-                          <button className="button buttonGhost buttonDanger" onClick={() => hardDelete(record)} disabled={saving}>
-                            Delete
+                          <button className="actionIconBtn actionIconBtnDelete" onClick={() => archiveRecord(record)} disabled={saving} title="Archive" aria-label={`Archive ${asText(record.name, "record")}`}>
+                            ✕
                           </button>
                         </div>
                       </td>

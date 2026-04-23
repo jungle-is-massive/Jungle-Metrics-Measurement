@@ -444,6 +444,38 @@ a {
   white-space: nowrap;
 }
 
+.actionIconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--grey-light);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--grey-mid);
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+.actionIconBtn:hover {
+  background: var(--grey-light);
+  color: var(--black);
+}
+
+.actionIconBtnDelete:hover {
+  background: #ffe0e0;
+  border-color: #ffb0b0;
+  color: #cc0000;
+}
+
+.actionIconBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .modalBackdrop {
   position: fixed;
   z-index: 200;
