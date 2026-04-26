@@ -325,7 +325,7 @@ a {
   background: var(--white);
   color: var(--black);
   border-color: var(--border);
-  height: 31px;
+  height: 31px!important;
 }
 
 .buttonGhost {
