@@ -285,6 +285,14 @@ export function EntityManager({
             {group && <div className="eyebrow" style={{ marginTop: 20 }}>{group}</div>}
             <div className="tableWrap">
               <table className="table">
+                {columns.some((column) => column.width) && (
+                  <colgroup>
+                    {columns.map((column) => (
+                      <col key={column.key} style={{ width: column.width }} />
+                    ))}
+                    <col style={{ width: "72px" }} />
+                  </colgroup>
+                )}
                 <thead>
                   <tr>
                     {columns.map((column) => (
@@ -374,3 +382,4 @@ export function EntityManager({
     </section>
   );
 }
+
