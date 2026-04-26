@@ -40,5 +40,6 @@ export type FieldConfig = {
 export type ColumnConfig = {
   key: string;
   label: string;
+  width?: string;
   render?: (record: DbRecord, lookups: Record<string, SelectOption[]>) => ReactNode;
 };
