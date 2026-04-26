@@ -55,7 +55,7 @@ export function EditablePageHeader({ slug, label, fallbackTitle, fallbackIntro }
     <>
       <div style={{ display: "flex", justifyContent: "space-between", gap: 16 }}>
         <PageHeader label={label} title={title} intro={intro} />
-        <button className="button buttonSecondary" style={{ flex: "0 0 auto", marginTop: 8, height:31 }} onClick={() => setEditing(true)} disabled={!hasSupabaseConfig}>
+        <button className="button buttonSecondary" style={{ flex: "0 0 auto", marginTop: 8, height: 31, minHeight: 31 }} onClick={() => setEditing(true)} disabled={!hasSupabaseConfig}>
           Edit intro
         </button>
       </div>
