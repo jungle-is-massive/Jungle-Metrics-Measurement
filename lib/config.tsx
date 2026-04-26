@@ -63,7 +63,7 @@ export const leadSourceColumns: ColumnConfig[] = [
   {
     key: "name",
     label: "Source",
-    width: "34%",
+    width: "32%",
     render: (record) => (
       <>
         <div className="entityName">{asText(record.name)}</div>
@@ -74,23 +74,23 @@ export const leadSourceColumns: ColumnConfig[] = [
   {
     key: "category_id",
     label: "Category",
-    width: "16%",
+    width: "15%",
     render: (record, lookups) => <span className="pill pillBlue">{getLookupLabel(lookups.category_id, record.category_id)}</span>
   },
-  { key: "expected_entry_stage", label: "Entry stage", width: "20%" },
+  { key: "expected_entry_stage", label: "Entry stage", width: "19%" },
   {
     key: "can_create_mql",
     label: "MQL",
-    width: "9%",
+    width: "8%",
     render: (record) => (record.can_create_mql ? <span className="pill pillGreen">yes</span> : <span className="pill pillGrey">no</span>)
   },
   {
     key: "can_create_sql",
     label: "SQL",
-    width: "9%",
+    width: "8%",
     render: (record) => (record.can_create_sql ? <span className="pill pillAmber">yes</span> : <span className="pill pillGrey">no</span>)
   },
-  { key: "status", label: "Status", width: "12%", render: (record) => statusPill(record.status) }
+  { key: "status", label: "Status", width: "11%", render: (record) => statusPill(record.status) }
 ];
 
 export const lifecycleFields: FieldConfig[] = [
