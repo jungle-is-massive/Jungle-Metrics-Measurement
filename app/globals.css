@@ -398,6 +398,7 @@ a {
   width: 100%;
   min-width: 820px;
   border-collapse: collapse;
+  table-layout: fixed;
   font-size: 12px;
 }
 
@@ -695,3 +696,4 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
